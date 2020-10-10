@@ -1,4 +1,4 @@
-# Stadying-in-Cafe
+# Studying-in-Cafe
 
 ## サイト概要
 cafeのwifiやコンセント状況などの情報共有アプリ。
