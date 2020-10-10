@@ -10,6 +10,35 @@
   </head>
 
   <body>
+    <header class="navbar navbar-fixed-top navbar-inverse" style="background:#FBA926;">
+      <div class="container">
+
+        <nav class="nav navbar-nav navbar-left">
+          <span>
+            <%= link_to root_path do %>Stadying-In-Cafe
+            <% end %>
+          </span>
+        </nav>
+
+        <nav>
+          <ul class="nav navbar-nav navbar-right" >
+            <!-- if文でサインイン前と後のヘッダーを変更 -->
+            <% if user_signed_in? %>
+            <!-- ホーム -->
+            <li><%= link_to 'About', top_about_path, class: 'glyphicon glyphicon-link about' %></li>
+            <!-- マイページ -->
+            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'glyphicon glyphicon-log-out logout' %></li>
+
+            <% else %>
+            <li><%= link_to 'About', top_about_path, class: 'glyphicon glyphicon-link about' %></li>
+            <li><%= link_to '新規登録', new_user_registration_path, class: 'glyphicon glyphicon-edit sign_up' %></li>
+            <li><%= link_to 'ログイン', new_user_session_path, class: 'glyphicon glyphicon-log-in sign_in' %></li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <br>
     <%= yield %>
   </body>
 </html>
