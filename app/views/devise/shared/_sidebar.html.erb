@@ -1,0 +1,12 @@
+サイドバー
+<%= link_to "投稿する", new_cafe_path, class:"btn btn-warning" %>
+
+
+<div class="sidebar-nav">
+	<ul class="nav nav-pills nav-stacked">
+		<li><%= link_to 'ホーム', cafes_path, class: "glyphicon glyphicon-home home" %></li>
+		<li><%= link_to 'マイページ', user_path(current_user.id), class: "glyphicon glyphicon-user user"  %></li>
+		<li><%= link_to 'About', top_about_path, class: 'glyphicon glyphicon-link about' %></li>
+		<li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'glyphicon glyphicon-log-out logout' %></li>
+	</ul>
+</div>

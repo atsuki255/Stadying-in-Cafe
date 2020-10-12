@@ -24,9 +24,9 @@
           <ul class="nav navbar-nav navbar-right" >
             <!-- if文でサインイン前と後のヘッダーを変更 -->
             <% if user_signed_in? %>
-            <!-- ホーム -->
+            <li><%= link_to 'ホーム', cafes_path, class: "glyphicon glyphicon-home home" %></li>
             <li><%= link_to 'About', top_about_path, class: 'glyphicon glyphicon-link about' %></li>
-            <!-- マイページ -->
+            <li><%= link_to 'マイページ', user_path(current_user.id), class: "glyphicon glyphicon-user user"  %></li>
             <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'glyphicon glyphicon-log-out logout' %></li>
 
             <% else %>
