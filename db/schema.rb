@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_10_062801) do
+ActiveRecord::Schema.define(version: 2020_10_12_054141) do
+
+  create_table "cafes", force: :cascade do |t|
+    t.string "shop_name"
+    t.text "impression"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,7 +30,7 @@ ActiveRecord::Schema.define(version: 2020_10_10_062801) do
     t.string "nickname"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "profile_image"
+    t.string "profile_image_id"
     t.boolean "is_deleted"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
