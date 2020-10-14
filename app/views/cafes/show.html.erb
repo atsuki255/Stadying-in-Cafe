@@ -1,1 +1,37 @@
-カフェ詳細
+<div class="container"><br>
+	<div class="row">
+		<div class="col-lg-3">
+			<%= render "devise/shared/sidebar" %>
+		</div>
+
+		<div class="col-lg-6" style="background:#F7DBAE;">
+			<h4>
+				<%= link_to user_path do %>
+				<%= attachment_image_tag @cafe.user, :profile_image,class: "img-circle", size: "100x100", fallback: "user.png" %>
+				<% end %>
+				<%= @cafe.user.nickname %>
+			</h4>
+
+			<div>
+				<h4>カフェ名</h4>
+				<%= @cafe.shop_name %>
+			</div>
+
+			<div>
+				<h4>感想</h4>
+				<%= @cafe.impression %>
+			</div>
+
+			<div>
+				<% if @cafe.user == @user %>
+					<%= link_to "編集", edit_cafe_path(@cafe), class:"btn btn-success edit_cafe_#{@cafe.id}" %>
+				<% end %>
+			</div>
+		</div>
+
+
+		<div class="col-lg-3">
+			<%= render "devise/shared/search" %>
+		</div>
+	</div>
+</div>
