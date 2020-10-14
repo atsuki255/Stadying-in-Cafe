@@ -22,6 +22,21 @@
 					<%= cafe.shop_name %>
 					<% end %>
 				<h4>
+
+				<!-- review(星の数) -->
+      	 <div id="star-review-<%= cafe.id %>"></div>
+      	  <script>
+      	  $('#star-review-<%= cafe.id %>').raty({
+      	    size: 36,
+      	    starOff:  '<%= asset_path('star-off.png') %>',
+      	    starOn : '<%= asset_path('star-on.png') %>',
+      	    starHalf: '<%= asset_path('star-half.png') %>',
+      	    half: true,
+      	    readOnly: true,
+      	    score: <%= cafe.review %>,
+      	  });
+      	  </script> 
+      	<!-- review(星の数) -->
 			<% end %>
 			</div>
 		</div>

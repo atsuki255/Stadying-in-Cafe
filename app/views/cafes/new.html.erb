@@ -21,6 +21,25 @@
 					<%= f.text_area :impression %>
 				</div>
 
+				  <!-- review(星の数) -->
+				  <div class="form-group row" id="star">
+				    <%= f.label :review,'評価 ', class:'col-md-3 col-form-label' %>
+				    <%= f.hidden_field :review, id: :review_star %>
+				  </div>
+				
+				  <!-- review(javascript) -->
+				  <script>
+				  $('#star').raty({
+				    size     : 36,
+				    starOff:  '<%= asset_path('star-off.png') %>',
+				    starOn : '<%= asset_path('star-on.png') %>',
+				    starHalf: '<%= asset_path('star-half.png') %>',
+				    scoreName: 'cafe[review]',
+				    half: true,
+				  });
+				  </script> 
+				  <!-- review(星の数) --> 
+
 				<div>
 					<%= f.submit "投稿", class: "btn-sm btn-warning" %>
 				</div>
