@@ -1,19 +1,35 @@
-<div class="container">
+<div class="container"><br>
 	<div class="row">
 		<div class="col-lg-3">
-			投稿フォーム
+			<%= render "devise/shared/sidebar" %>
+		</div>
 
-			<div class="sidebar-nav">
-				<ul class="nav nav-pills nav-stacked">
-					<li><%= link_to 'ホーム', cafes_path, class: "glyphicon glyphicon-home home" %></li>
-				</ul>
-			</div>
+		<div class="col-lg-6" style="background:#F7DBAE;">
+			<h4>
+				<%= attachment_image_tag @user, :profile_image,class: "img-circle", size: "100x100", fallback: "user.png" %>
+				<%= @user.nickname %>
+			</h4>
+
+			<%= form_for(@cafe, url: cafes_path) do |f| %>
+				<div>
+					<h4>カフェ名</h4>
+					<%= f.text_field :shop_name %>
+				</div>
+
+				<div>
+					<h4>感想</h4>
+					<%= f.text_area :impression %>
+				</div>
+
+				<div>
+					<%= f.submit "投稿", class: "btn-sm btn-warning" %>
+				</div>
+			<% end %>
 		</div>
-		<div class="col-lg-6">
-			投稿画面
-		</div>
+
+
 		<div class="col-lg-3">
-			タグ検索
+			<%= render "devise/shared/search" %>
 		</div>
 	</div>
 </div>

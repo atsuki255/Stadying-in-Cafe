@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_10_12_054141) do
 
-  create_table "cafes", force: :cascade do |t|
+  create_table "caves", force: :cascade do |t|
     t.string "shop_name"
     t.text "impression"
     t.integer "user_id"

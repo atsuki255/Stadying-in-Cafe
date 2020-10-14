@@ -1,1 +1,37 @@
-カフェ情報編集
+<div class="container"><br>
+	<div class="row">
+		<div class="col-lg-3">
+			<%= render "devise/shared/sidebar" %>
+		</div>
+
+		<div class="col-lg-6" style="background:#F7DBAE;">
+			<h4>
+				<%= attachment_image_tag @user, :profile_image,class: "img-circle", size: "100x100", fallback: "user.png" %>
+				<%= @user.nickname %>
+			</h4>
+
+			<%= form_for(@cafe, url: cafe_path) do |f| %>
+				<div>
+					<h4>カフェ名</h4>
+					<%= f.text_field :shop_name %>
+				</div>
+
+				<div>
+					<h4>感想</h4>
+					<%= f.text_area :impression %>
+				</div>
+
+				<div>
+					<%= f.submit "編集内容を保存する", class: "btn-sm btn-warning" %>
+					<% if @cafe.user == current_user %>
+  					<%= link_to "削除", cafe_path(@cafe), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger destroy_cafe_#{@cafe.id}" %>
+					<% end %>
+				</div>
+			<% end %>
+		</div>
+
+		<div class="col-lg-3">
+			<%= render "devise/shared/search" %>
+		</div>
+	</div>
+</div>
