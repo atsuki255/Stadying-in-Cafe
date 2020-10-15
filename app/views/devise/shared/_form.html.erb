@@ -1,14 +1,4 @@
-<div class="container"><br>
-	<div class="row">
-		<div class="col-lg-3">
-			<%= render "devise/shared/sidebar" %>
-		</div>
 
-		<div class="col-lg-6" style="background:#F7DBAE;">
-			<h4>
-				<%= attachment_image_tag @user, :profile_image,class: "img-circle", size: "100x100", fallback: "user.png" %>
-				<%= @user.nickname %>
-			</h4>
 
 			<%= form_for(@cafe, url: cafes_path) do |f| %>
 				<div>
@@ -60,16 +50,3 @@
  						<%= f.text_field :address, placeholder: "住所" %>
  					</div>
  					<!-- カフェの場所 -->
-
-				<div>
-					<%= f.submit "投稿", class: "btn-sm btn-warning" %>
-				</div>
-			<% end %>
-		</div>
-
-
-		<div class="col-lg-3">
-			<%= render "devise/shared/search" %>
-		</div>
-	</div>
-</div>

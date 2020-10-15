@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_15_034434) do
+ActiveRecord::Schema.define(version: 2020_10_15_085019) do
 
   create_table "cafe_tags", force: :cascade do |t|
     t.integer "cafe_id"
@@ -28,6 +28,9 @@ ActiveRecord::Schema.define(version: 2020_10_15_034434) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "review"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "tags", force: :cascade do |t|
