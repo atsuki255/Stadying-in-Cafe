@@ -54,6 +54,13 @@
 				</div>
 				<!-- タグ付け -->
 
+				<!-- カフェの場所 -->
+				<div>
+					<h4>住所</h4>
+ 					<%= f.text_field :address, placeholder: "住所" %>
+ 				</div>
+ 				<!-- カフェの場所 -->
+
 				<div>
 					<%= f.submit "編集内容を保存する", class: "btn-sm btn-warning" %>
 					<% if @cafe.user == current_user %>

@@ -73,3 +73,8 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 #cssでbootstrapを使用するためのgem
 
+gem 'geocoder'
+# geocoderによって住所の情報を元に緯度、経度を割り出す
+gem 'dotenv-rails'
+# githubにpushしても表示されないように設定
+
