@@ -19,8 +19,8 @@ class CafesController < ApplicationController
 	end
 
 	def index
-		@cafes = Cafe.all
 		@user = current_user
+		@cafes = params[:tag_id].present? ? Tag.find(params[:tag_id]).cafes : Cafe.all
 	end
 
 	def show
@@ -54,7 +54,7 @@ class CafesController < ApplicationController
 	private
 
   	def cafe_params
-  		params.require(:cafe).permit(:shop_name, :impression, :user_id, :review)
+  		params.require(:cafe).permit(:shop_name, :impression, :user_id, :review, tag_ids: [])
   	end
 
 	def user_params

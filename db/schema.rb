@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_14_150201) do
+ActiveRecord::Schema.define(version: 2020_10_15_034434) do
+
+  create_table "cafe_tags", force: :cascade do |t|
+    t.integer "cafe_id"
+    t.integer "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cafe_id"], name: "index_cafe_tags_on_cafe_id"
+    t.index ["tag_id"], name: "index_cafe_tags_on_tag_id"
+  end
 
   create_table "caves", force: :cascade do |t|
     t.string "shop_name"
@@ -19,6 +28,12 @@ ActiveRecord::Schema.define(version: 2020_10_14_150201) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "review"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

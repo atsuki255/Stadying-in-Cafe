@@ -37,6 +37,14 @@
       	  });
       	  </script> 
       	<!-- review(星の数) -->
+
+      	<!-- タグ付け -->
+      	<div>
+      		<% cafe.tags.each do |tag| %>
+    				<%= tag.name %>
+					<% end %> 
+				</div> 
+				<!-- タグ付け --> 
 			<% end %>
 			</div>
 		</div>
