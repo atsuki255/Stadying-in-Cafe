@@ -20,7 +20,7 @@ class CafesController < ApplicationController
 
 	def index
 		@user = current_user
-		@cafes = params[:tag_id].present? ? Tag.find(params[:tag_id]).cafes : Cafe.page(params[:page]).per(3)
+		@cafes = params[:tag_id].present? ? Tag.find(params[:tag_id]).cafes : Cafe.all
 	end
 
 	def show

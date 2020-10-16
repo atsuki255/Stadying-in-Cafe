@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 	def show
 		@user = User.find(params[:id])
-		@cafes = params[:tag_id].present? ? Tag.find(params[:tag_id]).cafes : Cafe.page(params[:page]).per(3)
+		@cafes = @user.cafes
 	end
 
 	def edit

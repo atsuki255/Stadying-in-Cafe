@@ -47,3 +47,52 @@ body {
 }
 //動画を背景のようにする為にテキストを浮かす
 
+
+.search{
+  min-height: 70vh;
+  border-radius: 5px;
+}
+//右側のタグ検索部分
+
+
+.cafe_index {
+  margin-bottom: 5%;
+  border: 3px solid #FBA926;
+  border-radius: 7px;
+}
+.tag {
+  margin: 6%;
+  border: 4px solid #FBA926;
+  border-radius: 5px;
+}
+//投稿一覧表示
+
+.sidebar-post {
+  min-height: 20vh;
+  border: 2px solid #FBA926;
+  border-radius: 7px;
+  margin-bottom: 20px;
+}
+
+.sidebar-user {
+  margin: 10px;
+}
+
+.sidebar-btn{
+  margin-top: 60px;
+  text-align: center;
+  font-size: 15px;
+  border-radius: 50px;
+}
+
+.nav-pills {
+  font-size: 30px;
+  margin-top: 70px;
+}
+
+.navlink {
+  margin-bottom: 15px;
+}
+
+
+//サイドバー各所リンク
