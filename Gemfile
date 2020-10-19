@@ -75,9 +75,16 @@ gem 'jquery-rails'
 
 gem 'geocoder'
 # geocoderによって住所の情報を元に緯度、経度を割り出す
+
 gem 'dotenv-rails'
 # githubにpushしても表示されないように設定
 
 gem 'kaminari', '~> 0.17.0'
 gem 'kaminari-bootstrap', '~> 3.0.1'
 # ページネーション
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+# MySQLを利用するために必要なgem
+
