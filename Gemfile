@@ -86,5 +86,6 @@ gem 'kaminari-bootstrap', '~> 3.0.1'
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
+end
 # MySQLを利用するために必要なgem
 
