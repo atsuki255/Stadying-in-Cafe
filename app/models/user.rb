@@ -7,6 +7,6 @@ class User < ApplicationRecord
   has_many :cafes, dependent: :destroy
   attachment :profile_image
 
-  validates :name, presence: true
+  
   validates :nickname, presence: true
 end
