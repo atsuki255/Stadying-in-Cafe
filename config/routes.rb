@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   root to: 'top#index'
   get 'top/about' => 'top#about'
 
-  resources :cafes, only: [:new, :create, :index, :show, :edit, :update, :destroy]
+  resources :cafes, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
+  	resources :cafe_comments, only: [:create, :destroy]
+  end
 
   resources :users, only: [:show, :edit, :update] 
   

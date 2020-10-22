@@ -20,12 +20,13 @@ class CafesController < ApplicationController
 
 	def index
 		@user = current_user
-		@cafes = params[:tag_id].present? ? Tag.find(params[:tag_id]).cafes : Cafe.all
+		@cafes = params[:tag_id].present? ? Tag.find(params[:tag_id]).cafes.page(params[:page]).per(3) : Cafe.page(params[:page]).per(3)
 	end
 
 	def show
 		@user = current_user
 		@cafe = Cafe.find(params[:id])
+		@cafe_comment = CafeComment.new
 	end
 
 	def edit 

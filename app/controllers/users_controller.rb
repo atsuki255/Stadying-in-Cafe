@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 	def show
 		@user = User.find(params[:id])
-		@cafes = @user.cafes
+		@cafes = @user.cafes.page(params[:page]).per(3)
 	end
 
 	def edit
