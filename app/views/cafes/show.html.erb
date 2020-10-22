@@ -46,7 +46,7 @@
 			<!-- タグ付け -->  
 
 			<!-- カフェの場所 -->
-			<p>住所</p>
+			<h4>住所</h4>
 			<p><%= @cafe.address %></p><!-- (住所名表示) -->
 			
 			<div id="map"></div><!-- (地図を表示) -->
@@ -96,8 +96,44 @@
 				<% if @cafe.user == @user %>
 					<%= link_to "編集", edit_cafe_path(@cafe), class:"btn btn-success edit_cafe_#{@cafe.id}" %>
 				<% end %>
+			</div><br>
+
+			<!-- コメント表示 -->
+			<div>
+				<% @cafe.cafe_comments.each do |cafe_comment| %>
+					<div>
+						<%= attachment_image_tag cafe_comment.user, :profile_image,class: "img-circle", size: "50x50", fallback: "user.png" %>
+						<%= cafe_comment.user.nickname %>
+					</div>
+					<div>
+						<%= cafe_comment.comment %>
+					</div>
+					<span class="pull-right">
+						<%= cafe_comment.created_at.strftime('%Y/%m/%d') %>
+					</span>
+
+					<% if cafe_comment.user == current_user %>
+            <div>
+              <%= link_to "削除", cafe_cafe_comment_path(cafe_comment.cafe, cafe_comment), method: :delete, class: "btn btn-danger" %>
+            </div>
+          <% end %><br>
+				<% end %>
 			</div>
+			<!-- コメント表示 -->
+
+			<!-- コメント送信フォーム -->
+			<div class="row">
+			<%= form_for [@cafe, @cafe_comment] do |f| %>
+    		<div class="col-sm-12">
+    	  	<%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
+    		</div>
+    		<%= f.submit "送信する", class: "btn btn-warning btn-base-1 mt-20 pull-right" %>
+    	<% end %>
+  		</div>
+  		<!-- コメント送信フォーム -->
+
 		</div>
+
 
 
 		<div class="col-lg-3">

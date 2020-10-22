@@ -3,6 +3,7 @@ class Cafe < ApplicationRecord
 
 	has_many :cafe_tags, dependent: :destroy
     has_many :tags, through: :cafe_tags
+    has_many :cafe_comments, dependent: :destroy
 
     geocoded_by :address
   	after_validation :geocode, if: :address_changed?
@@ -10,4 +11,6 @@ class Cafe < ApplicationRecord
 
   	validates :shop_name, presence: true
   	validates :impression, presence: true
+
+
 end

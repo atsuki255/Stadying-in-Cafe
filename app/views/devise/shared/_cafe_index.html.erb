@@ -29,6 +29,13 @@
       	  </script> <br>
       	<!-- review(星の数) -->
 
+      	<!-- コメント数 -->
+      	<div>
+      		<%= link_to "#{cafe.cafe_comments.count}" , cafe_path(cafe.id), class: "glyphicon glyphicon-comment" %>
+      	</div><br>
+      	<!-- コメント数 -->
+
+      	<br>
       	<!-- タグ付け -->      	
       	<% cafe.tags.each do |tag| %>
       		<span class="tag" style="background:#F7DBAE;">
@@ -38,5 +45,9 @@
 				<!-- タグ付け --> 
 			</div>
 			<% end %>
+
+			<%= paginate @cafes, class: "paginate" %>
+
+
 			
 		
