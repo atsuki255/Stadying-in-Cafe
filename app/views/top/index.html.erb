@@ -1,0 +1,21 @@
+<div class="wrap-video">
+  <div class="video">
+  <%= video_tag("背景動画.mp4", autoplay: :true, loop: :true, muted: :true, class: "video-content") %>
+  <!-- 背景の動画用メソッド -->
+  </div>
+
+  <div class="text">
+  	<h1>カフェで勉強しよう！</h1><br><br>
+  	<h4>
+  		Studying-in-Cafeではカフェで作業をする人に向けた<br>
+  		カフェ情報共有アプリです
+  	</h4>
+
+  	<% if user_signed_in? %>
+  	<%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-success" %>
+  	<% else %>
+  	<%= link_to "新規登録",new_user_registration_path ,class: "btn btn-warning" %>
+  	<%= link_to "ログイン",new_user_session_path ,class: "btn btn-success" %>
+  	<% end %>
+  </div>
+</div>

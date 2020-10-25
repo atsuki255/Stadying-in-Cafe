@@ -1,0 +1,53 @@
+			<% @cafes.each do |cafe| %>
+			<div class="cafe_index" >
+				<h4>
+					<%= link_to user_path(cafe.user_id) do %>
+					<%= attachment_image_tag cafe.user, :profile_image,class: "img-circle", size: "100x100", fallback: "user.png" %>
+					<% end %>
+					<%= cafe.user.nickname %>
+				</h4>
+
+				<h4>カフェ名</h4>
+				<h4>
+					<%= link_to cafe_path(cafe.id) do %>
+					<%= cafe.shop_name %>
+					<% end %>
+				<h4>
+
+				<!-- review(星の数) -->
+      	 <div id="star-review-<%= cafe.id %>"></div>
+      	  <script>
+      	  $('#star-review-<%= cafe.id %>').raty({
+      	    size: 36,
+      	    starOff:  '<%= asset_path('star-off.png') %>',
+      	    starOn : '<%= asset_path('star-on.png') %>',
+      	    starHalf: '<%= asset_path('star-half.png') %>',
+      	    half: true,
+      	    readOnly: true,
+      	    score: <%= cafe.review %>,
+      	  });
+      	  </script> <br>
+      	<!-- review(星の数) -->
+
+      	<!-- コメント数 -->
+      	<div>
+      		<%= link_to "#{cafe.cafe_comments.count}" , cafe_path(cafe.id), class: "glyphicon glyphicon-comment" %>
+      	</div><br>
+      	<!-- コメント数 -->
+
+      	<br>
+      	<!-- タグ付け -->      	
+      	<% cafe.tags.each do |tag| %>
+      		<span class="tag" style="background:#F7DBAE;">
+    				<%= tag.name %>
+    			</span> 
+				<% end %> 
+				<!-- タグ付け --> 
+			</div>
+			<% end %>
+
+			<%= paginate @cafes, class: "paginate" %>
+
+
+			
+		

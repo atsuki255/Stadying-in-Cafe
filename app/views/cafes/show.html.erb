@@ -1,0 +1,143 @@
+<div class="container"><br>
+	<div class="row">
+		<div class="col-lg-3">
+			<%= render "devise/shared/sidebar" %>
+		</div>
+
+		<div class="col-lg-6" style="background:#F7DBAE;">
+			<h4>
+				<%= link_to user_path do %>
+				<%= attachment_image_tag @cafe.user, :profile_image,class: "img-circle", size: "100x100", fallback: "user.png" %>
+				<% end %>
+				<%= @cafe.user.nickname %>
+			</h4>
+
+			<div>
+				<h4>カフェ名</h4>
+				<%= @cafe.shop_name %>
+			</div>
+
+			<div>
+				<h4>感想</h4>
+				<%= @cafe.impression %>
+			</div>
+
+      <!-- review(星の数) -->
+       <div id="star-review-<%= @cafe.id %>"></div>
+        <script>
+        $('#star-review-<%= @cafe.id %>').raty({
+          size: 36,
+          starOff:  '<%= asset_path('star-off.png') %>',
+          starOn : '<%= asset_path('star-on.png') %>',
+          starHalf: '<%= asset_path('star-half.png') %>',
+          half: true,
+          readOnly: true,
+          score: <%= @cafe.review %>,
+        });
+        </script> 
+      <!-- review(星の数) -->
+
+      <!-- タグ付け -->
+      <div>
+      	<% @cafe.tags.each do |tag| %>
+    			<%= tag.name %>
+				<% end %> 
+			</div> 
+			<!-- タグ付け -->  
+
+			<!-- カフェの場所 -->
+			<h4>住所</h4>
+			<p><%= @cafe.address %></p><!-- (住所名表示) -->
+			
+			<div id="map"></div><!-- (地図を表示) -->
+			・・・
+			
+			<style>/*(地図の大きさ指定)*/
+			#map{
+			  height: 150px;
+			  width:270px;
+			}
+			</style>
+			
+			<script type="text/javascript">
+			    function initMap() {
+			
+			        var test ={lat: <%= @cafe.latitude %>, lng: <%= @cafe.longitude %>};
+			        var map = new google.maps.Map(document.getElementById('map'), {
+			            zoom: 15,
+			            center: test
+			        });
+			        var transitLayer = new google.maps.TransitLayer();
+			        transitLayer.setMap(map);
+			
+			        var contentString = '住所：<%= @cafe.address %>';
+			        var infowindow = new google.maps.InfoWindow({
+			            content: contentString
+			        });
+			
+			        var marker = new google.maps.Marker({
+			            position:test,
+			            map: map,
+			            title: contentString
+			        });
+			
+			        marker.addListener('click', function() {
+			            infowindow.open(map, marker);
+			        });
+			    }
+			</script>
+			
+			<script async defer
+			        src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
+			</script>
+			<!-- カフェの場所 -->
+
+			<div>
+				<% if @cafe.user == @user %>
+					<%= link_to "編集", edit_cafe_path(@cafe), class:"btn btn-success edit_cafe_#{@cafe.id}" %>
+				<% end %>
+			</div><br>
+
+			<!-- コメント表示 -->
+			<div>
+				<% @cafe.cafe_comments.each do |cafe_comment| %>
+					<div>
+						<%= attachment_image_tag cafe_comment.user, :profile_image,class: "img-circle", size: "50x50", fallback: "user.png" %>
+						<%= cafe_comment.user.nickname %>
+					</div>
+					<div>
+						<%= cafe_comment.comment %>
+					</div>
+					<span class="pull-right">
+						<%= cafe_comment.created_at.strftime('%Y/%m/%d') %>
+					</span>
+
+					<% if cafe_comment.user == current_user %>
+            <div>
+              <%= link_to "削除", cafe_cafe_comment_path(cafe_comment.cafe, cafe_comment), method: :delete, class: "btn btn-danger" %>
+            </div>
+          <% end %><br>
+				<% end %>
+			</div>
+			<!-- コメント表示 -->
+
+			<!-- コメント送信フォーム -->
+			<div class="row">
+			<%= form_for [@cafe, @cafe_comment] do |f| %>
+    		<div class="col-sm-12">
+    	  	<%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
+    		</div>
+    		<%= f.submit "送信する", class: "btn btn-warning btn-base-1 mt-20 pull-right" %>
+    	<% end %>
+  		</div>
+  		<!-- コメント送信フォーム -->
+
+		</div>
+
+
+
+		<div class="col-lg-3">
+			<%= render "devise/shared/search" %>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,52 @@
+
+
+			<%= form_for(@cafe, url: cafes_path) do |f| %>
+				<div>
+					<h4>カフェ名</h4>
+					<%= f.text_field :shop_name %>
+				</div>
+
+				<div>
+					<h4>感想</h4>
+					<%= f.text_area :impression %>
+				</div>
+
+				  <!-- review(星の数) -->
+				  <div class="form-group row" id="star">
+				    <%= f.label :review,'評価 ', class:'col-md-3 col-form-label' %>
+				    <%= f.hidden_field :review, id: :review_star %>
+				  </div>
+				
+				  <!-- review(javascript) -->
+				  <script>
+				  $('#star').raty({
+				    size     : 36,
+				    starOff:  '<%= asset_path('star-off.png') %>',
+				    starOn : '<%= asset_path('star-on.png') %>',
+				    starHalf: '<%= asset_path('star-half.png') %>',
+				    scoreName: 'cafe[review]',
+				    half: true,
+				  });
+				  </script> 
+				  <!-- review(星の数) --> 
+
+				  <!-- タグ付け -->
+					<div class="check_box">
+  					<span>タグ</span>
+  					 <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+  				  	<div>
+  				    	<%= tag.label do %>
+  				      	<%= tag.check_box %>
+  				      	<%= tag.text %>
+  				     	<% end %>
+  				   	</div>
+  				 	<% end %>
+					</div>
+					<!-- タグ付け -->
+
+					<!-- カフェの場所 -->
+					<div>
+						<h4>住所</h4>
+ 						<%= f.text_field :address, placeholder: "住所" %>
+ 					</div>
+ 					<!-- カフェの場所 -->
