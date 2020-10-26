@@ -96,3 +96,6 @@ end
   gem 'capistrano-rbenv'
 # ローカル環境の変更をリモート環境へ反映
 
+gem 'ed25519'
+gem 'bcrypt_pbkdf'
+
