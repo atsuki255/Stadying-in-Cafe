@@ -89,3 +89,10 @@ group :production do
 end
 # MySQLを利用するために必要なgem
 
+
+ gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano3-puma'
+  gem 'capistrano-rbenv'
+# ローカル環境の変更をリモート環境へ反映
+
