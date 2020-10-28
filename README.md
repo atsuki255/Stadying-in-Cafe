@@ -34,7 +34,7 @@ https://docs.google.com/spreadsheets/d/1CTKPDbr1rTPNzAkaerkVkmkq1icWOwqGF1XjuYZ9
 - 仮想環境：Vagrant,VirtualBox
 
 ## 使用素材
-Pixabay（ピクサベイ）無料画像サイト
+- Pixabay（ピクサベイ）無料画像サイト
 https://pixabay.com/ja/
-DesignEvo　無料ロゴ作成サイト
+- DesignEvo　無料ロゴ作成サイト
 https://www.designevo.com/
