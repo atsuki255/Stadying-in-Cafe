@@ -20,7 +20,7 @@ cafeで作業をする人（勉強、軽い仕事）
 画面推移図（adobe xd）
 https://xd.adobe.com/view/10deadea-4519-4344-a3d3-c5a441e7d5a1-458d/
 
-テーブル設計ER図
+テーブル設計ER図(drawio)
 https://drive.google.com/file/d/1ll5-r14ATswak3H_WU0fqsdNDStK3xgv/view?usp=sharing
 
 ### 機能一覧
@@ -36,3 +36,5 @@ https://docs.google.com/spreadsheets/d/1CTKPDbr1rTPNzAkaerkVkmkq1icWOwqGF1XjuYZ9
 ## 使用素材
 Pixabay（ピクサベイ）無料画像サイト
 https://pixabay.com/ja/
+DesignEvo　無料ロゴ作成サイト
+https://www.designevo.com/
