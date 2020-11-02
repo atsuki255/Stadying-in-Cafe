@@ -92,6 +92,9 @@
 			</script>
 			<!-- カフェの場所 -->
 
+			<!-- 本文の感情分析 -->
+			<div class="sentiment-score">本文の感情分析スコア[<%= @cafe.score %>]</div>
+
 			<div>
 				<% if @cafe.user == @user %>
 					<%= link_to "編集", edit_cafe_path(@cafe), class:"btn btn-success edit_cafe_#{@cafe.id}" %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_22_064903) do
+ActiveRecord::Schema.define(version: 2020_11_02_104142) do
 
   create_table "cafe_comments", force: :cascade do |t|
     t.text "comment"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2020_10_22_064903) do
     t.string "address"
     t.float "latitude"
     t.float "longitude"
+    t.decimal "score", precision: 5, scale: 3
   end
 
   create_table "tags", force: :cascade do |t|

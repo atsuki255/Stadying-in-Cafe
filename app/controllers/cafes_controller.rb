@@ -7,6 +7,8 @@ class CafesController < ApplicationController
 
 	def create
 		@cafe = Cafe.new(cafe_params)
+		
+		#自然言語処理、感情分析を使用するための記述
 		@user = current_user
 		@cafe.user_id = current_user.id
 		if @cafe.save
