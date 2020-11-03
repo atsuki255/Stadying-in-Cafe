@@ -113,9 +113,9 @@
 						<%= cafe_comment.created_at.strftime('%Y/%m/%d') %>
 					</span><br>
 
-					<!-- 本文の感情分析 -->
+					<!-- コメントの感情分析 -->
 					<span class="sentiment-score">コメントの感情分析スコア[<%= cafe_comment.score %>]</span>
-					<!-- 本文の感情分析 -->
+					<!-- コメントの感情分析 -->
 
 					<% if cafe_comment.user == current_user %>
             <div>
