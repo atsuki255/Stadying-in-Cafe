@@ -92,8 +92,6 @@
 			</script>
 			<!-- カフェの場所 -->
 
-			<!-- 本文の感情分析 -->
-			<div class="sentiment-score">本文の感情分析スコア[<%= @cafe.score %>]</div>
 
 			<div>
 				<% if @cafe.user == @user %>
@@ -113,7 +111,11 @@
 					</div>
 					<span class="pull-right">
 						<%= cafe_comment.created_at.strftime('%Y/%m/%d') %>
-					</span>
+					</span><br>
+
+					<!-- 本文の感情分析 -->
+					<span class="sentiment-score">コメントの感情分析スコア[<%= cafe_comment.score %>]</span>
+					<!-- 本文の感情分析 -->
 
 					<% if cafe_comment.user == current_user %>
             <div>
@@ -128,7 +130,7 @@
 			<div class="row">
 			<%= form_for [@cafe, @cafe_comment] do |f| %>
     		<div class="col-sm-12">
-    	  	<%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
+    	  	<%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに（内容はAIにより点数をつけています）" %>
     		</div>
     		<%= f.submit "送信する", class: "btn btn-warning btn-base-1 mt-20 pull-right" %>
     	<% end %>

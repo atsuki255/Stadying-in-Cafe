@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_02_104142) do
+ActiveRecord::Schema.define(version: 2020_11_03_105131) do
 
   create_table "cafe_comments", force: :cascade do |t|
     t.text "comment"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2020_11_02_104142) do
     t.integer "cafe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "score", precision: 5, scale: 3
   end
 
   create_table "cafe_tags", force: :cascade do |t|

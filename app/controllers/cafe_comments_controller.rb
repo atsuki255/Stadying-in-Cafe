@@ -3,6 +3,7 @@ class CafeCommentsController < ApplicationController
 		cafe = Cafe.find(params[:cafe_id])
     	comment = current_user.cafe_comments.new(cafe_comment_params)
     	comment.cafe_id = cafe.id
+    	comment.score = Language.get_data(cafe_comment_params[:comment])
     	comment.save
     	redirect_to cafe_path(cafe)
 	end
