@@ -4,6 +4,7 @@ class CafeCommentsController < ApplicationController
     	comment = current_user.cafe_comments.new(cafe_comment_params)
     	comment.cafe_id = cafe.id
     	comment.score = Language.get_data(cafe_comment_params[:comment])
+    	#自然言語処理、感情分析を使用するための記述
     	comment.save
     	redirect_to cafe_path(cafe)
 	end
