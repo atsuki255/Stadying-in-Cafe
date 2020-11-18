@@ -71,7 +71,7 @@ gem "refile-mini_magick"
 
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
-#cssでbootstrapを使用するためのgem
+#cssでbootstrapとjqueryを使用するためのgem
 
 gem 'geocoder'
 # geocoderによって住所の情報を元に緯度、経度を割り出す
@@ -98,4 +98,4 @@ end
 
 gem 'ed25519'
 gem 'bcrypt_pbkdf'
-
+# Capistranoデプロイ時の解決
