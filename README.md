@@ -17,7 +17,7 @@ cafeで作業をする人（勉強、軽い仕事）
 「cafeで作業したい」と思った時に自分の目的にあったcafeを見つける事ができる。
 
 ## 設計書
-画面推移図（adobe xd）
+画面遷移図（adobe xd）
 https://xd.adobe.com/view/10deadea-4519-4344-a3d3-c5a441e7d5a1-458d/
 
 テーブル設計ER図(drawio)
